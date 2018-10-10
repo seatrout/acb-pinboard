@@ -16,7 +16,7 @@
 // Change `read` to true to invoke the promptless, self-closing version of the
 // bookmarklet.
 var readlater = false;
-var mightwrite = false;
+var mightwrite = true;
 var press_column_clips= false;
 var leaders = false;
 var appUrl = null;
@@ -142,6 +142,15 @@ var quoteSelection = true;
             if (re.test(text)) {
                 tags.push(tagKeywords[keyword])
             }
+        }
+        if (mightwrite){
+            tags.push("might_write")
+        }
+        if (leaders){
+            tags.push("leaders")
+        }
+        if (press_column_clips){
+            tags.push("Press_Column")
         }
         return tags
     };
